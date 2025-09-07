@@ -1,0 +1,20 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.section-container {
+  @apply flex-1 p-8 bg-gray-50 border-r border-gray-200 overflow-y-auto;
+}
+
+.section-title {
+  @apply text-3xl font-bold mb-6 text-gray-800 border-b pb-4;
+}
+
+.form-input {
+  @apply w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200;
+}
+
+.btn-addskill {
+  @apply px-4 py-2 bg-blue-600 text-white font-medium rounded-md shadow hover:bg-blue-700 transition duration-200;
+}
