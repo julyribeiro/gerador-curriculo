@@ -49,7 +49,7 @@ export default function PreviewSection() {
               <div key={exp.id} className="text-gray-700">
                 <p className="font-bold uppercase">{exp.role}</p>
                 <p className="italic">
-                  {exp.company} | {exp.period}{" "}
+                  {exp.company} {exp.period}{" "}
                   {exp.current && "(Atual)"}
                 </p>
                 {exp.description && (
