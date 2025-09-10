@@ -27,21 +27,21 @@ export default function PersonalInfo() {
     <section className="space-y-14">
       <h3 className="text-xl font-semibold mb-4 text-gray-700">Informações Pessoais</h3>
 
-      <div className="space-y-4">
-        <div className="form-group">
-          <label className="block text-sm font-medium text-gray-600 mb-1">Nome completo</label>
-          <input
-            type="text"
-            placeholder="Digite o seu nome completo"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
-            value={cvData.name}
-            onChange={(e) => updateField("name", e.target.value)}
-          />
-        </div>
+      <div className="form-group">
 
         <div className="grid grid-cols-2 gap-4">
-          <div>
-            <label className="block text-sm font-medium text-gray-600 mb-1">Email</label>
+          <span className="form-group">
+            <label className="block text-sm font-medium text-gray-600 mb-1">Nome completo</label>
+            <input
+              type="text"
+              placeholder="Digite o seu nome completo"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+              value={cvData.name}
+              onChange={(e) => updateField("name", e.target.value)}
+            />
+          </span>
+          <span>
+            <label className="block text-sm font-medium text-gray-600 mb-1">E-mail</label>
             <input
               type="email"
               placeholder="Digite o seu e-mail"
@@ -49,9 +49,12 @@ export default function PersonalInfo() {
               value={cvData.email}
               onChange={(e) => updateField("email", e.target.value)}
             />
-          </div>
+          </span>
+        </div>
 
-          <div>
+
+        <div className="grid grid-cols-2 gap-4">
+          <span>
             <label className="block text-sm font-medium text-gray-600 mb-1">Telefone</label>
             <input
               type="text"
@@ -60,22 +63,20 @@ export default function PersonalInfo() {
               value={cvData.phone}
               onChange={(e) => updateField("phone", e.target.value)}
             />
-          </div>
+          </span>
+          <span>
+            <label className="block text-sm font-medium text-gray-600 mb-1">LinkedIn</label>
+            <input
+              type="text"
+              placeholder="Digite o seu LinkedIn"
+              className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
+              value={cvData.linkedin}
+              onChange={(e) => updateField("linkedin", e.target.value)}
+            />
+          </span>
         </div>
 
-
-        <div className="form-group">
-          <label className="block text-sm font-medium text-gray-600 mb-1">LinkedIn</label>
-          <input
-            type="text"
-            placeholder="Digite o seu LinkedIn"
-            className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
-            value={cvData.linkedin}
-            onChange={(e) => updateField("linkedin", e.target.value)}
-          />
-        </div>
-
-        <div className="form-group">
+        <div className="form-group mt-4">
           <label className="block text-sm font-medium text-gray-600 mb-1">Resumo Profissional</label>
           <textarea
             rows={4}

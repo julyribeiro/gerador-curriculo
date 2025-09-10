@@ -33,7 +33,7 @@ export default function SkillsSection() {
     <section className="mb-8">
       <h3 className="text-xl font-semibold mb-4 text-gray-700">Habilidades</h3>
 
-      <div className="flex space-x-2 mb-4">
+      <div className="flex gap-2">
         <input
           type="text"
           placeholder="Digite uma habilidade"

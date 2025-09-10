@@ -7,18 +7,20 @@ export default function PreviewSection() {
     <section className="flex-1 p-10 bg-white max-w-4xl mx-auto shadow-md rounded-md">
       {/* Nome */}
       <div className="text-center mb-8">
-        <h1 className="text-4xl font-bold text-gray-900 uppercase tracking-wide">
+        <h1 className="text-3xl font-bold text-gray-900 uppercase tracking-wide">
           {cvData.name || "Seu Nome Completo"}
         </h1>
       </div>
 
       {/* Informações de contato */}
       <div className="flex flex-col items-center space-y-1 text-gray-700 mb-6">
-        <p>{cvData.email || "seu.email@exemplo.com"}</p>
-        <p>{cvData.phone || "(xx) xxxxx-xxxx"}</p>
+        <span className="flex justify- between gap-4">
+          <p>{cvData.email || "seu.email@exemplo.com"}</p>
+          <p>{cvData.phone || "(xx) xxxxx-xxxx"}</p>
+        </span>
 
         {cvData.linkedin && (
-          <a
+          <a  
             href={cvData.linkedin}
             className="text-sm text-white bg-gray-700 px-3 py-1 rounded-md hover:bg-gray-800 transition"
           >

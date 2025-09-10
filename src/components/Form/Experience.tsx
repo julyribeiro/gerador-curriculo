@@ -72,32 +72,34 @@ export default function ExperiencesSection() {
 
   return (
     <section className="grid gap-4">
-      <h3 className="text-xl font-semibold mb-4 text-gray-700">Experiências Profissionais</h3>
+      <h3 className="text-xl font-semibold text-gray-700">Experiências Profissionais</h3>
 
       <div className="form-group space-y-2">
-        <div className="grid gap-2">
-          <label className="form-label">Empresa</label>
-          <input
-            type="text"
-            className="form-input"
-            value={company}
-            onChange={(e) => setCompany(e.target.value)}
-            placeholder="Google"
-          />
-        </div>
-
-        <div className="grid grid-cols-3 gap-4">
-          <div className="grid gap-2">
-            <label className="form-label">Cargo</label>
+        
+        <div className="grid grid-cols-2 gap-4">
+          <span className="grid gap-2">
+            <label className="form-label">Empresa</label>
             <input
               type="text"
               className="form-input"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-              placeholder="Desenvolvedor Front-end"
+              value={company}
+              onChange={(e) => setCompany(e.target.value)}
+              placeholder="Google"
             />
-          </div>
-          <div className="grid gap-2">
+          </span>
+          <span className="grid gap-2">
+              <label className="form-label">Cargo</label>
+              <input
+                type="text"
+                className="form-input"
+                value={role}
+                onChange={(e) => setRole(e.target.value)}
+                placeholder="Desenvolvedor Front-end"
+              />
+            </span>
+        </div>
+        <div className="grid grid-cols-2 gap-4">
+          <span className="grid gap-2">
             <label className="form-label">Data de início</label>
             <input
               type="text"
@@ -106,9 +108,9 @@ export default function ExperiencesSection() {
               onChange={(e) => setStartDate(e.target.value)}
               placeholder="01/2020"
             />
-          </div>
-          <div className="grid gap-2">
-            <label className="form-label">Data de Fim</label>
+          </span>
+          <span className="grid gap-2">
+            <label className="form-label">Data de saída</label>
             <input
               type="text"
               className="form-input"
@@ -116,11 +118,11 @@ export default function ExperiencesSection() {
               onChange={(e) => setEndDate(e.target.value)}
               placeholder="02/2021"
             />
-          </div>
+          </span>
         </div>
 
         <div className="grid gap-2">
-          <label className="form-label">Descrição de suas atividades</label>
+          <label className="form-label mt-2">Descrição de suas atividades</label>
           <textarea
             className="form-input"
             value={description}
