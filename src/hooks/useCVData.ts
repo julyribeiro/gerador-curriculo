@@ -17,6 +17,8 @@ type Skill = {
 };
 
 type Experience = {
+  endDate: ReactNode;
+  startDate: ReactNode;
   id: string;
   company: string;
   role: string;

@@ -47,10 +47,11 @@ export default function PreviewSection() {
           <div className="mt-4 space-y-6">
             {cvData.experiences.map((exp) => (
               <div key={exp.id} className="text-gray-700">
-                <p className="font-bold uppercase">{exp.role}</p>
+                <p className="font-bold uppercase">
+                  {exp.role} - {exp.startDate} a {exp.endDate}
+                </p>
                 <p className="italic">
-                  {exp.company} {exp.period}{" "}
-                  {exp.current && "(Atual)"}
+                  {exp.company}
                 </p>
                 {exp.description && (
                   <ul className="list-disc list-inside mt-2 space-y-1">
