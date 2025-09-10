@@ -13,8 +13,8 @@ export default function PreviewSection() {
       </div>
 
       {/* Informações de contato */}
-      <div className="flex flex-col items-center space-y-1 text-gray-700 mb-6">
-        <span className="flex justify- between gap-4">
+      <div className="flex flex-col space-y-1 text-gray-700 mb-6">
+        <span className="flex justify-between gap-4">
           <p>{cvData.email || "seu.email@exemplo.com"}</p>
           <p>{cvData.phone || "(xx) xxxxx-xxxx"}</p>
         </span>
@@ -22,7 +22,7 @@ export default function PreviewSection() {
         {cvData.linkedin && (
           <a  
             href={cvData.linkedin}
-            className="text-sm text-white bg-gray-700 px-3 py-1 rounded-md hover:bg-gray-800 transition"
+            className="text-sm text-center text-white bg-gray-700 px-3 py-1 rounded-md hover:bg-gray-800 transition"
           >
             {cvData.linkedin}
           </a>
