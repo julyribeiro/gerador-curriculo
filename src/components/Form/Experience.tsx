@@ -86,18 +86,17 @@ export default function ExperiencesSection() {
           />
         </div>
 
-        <div className="grid gap-2">
-          <label className="form-label">Cargo</label>
-          <input
-            type="text"
-            className="form-input"
-            value={role}
-            onChange={(e) => setRole(e.target.value)}
-            placeholder="Desenvolvedor Front-end"
-          />
-        </div>
-
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-3 gap-4">
+          <div className="grid gap-2">
+            <label className="form-label">Cargo</label>
+            <input
+              type="text"
+              className="form-input"
+              value={role}
+              onChange={(e) => setRole(e.target.value)}
+              placeholder="Desenvolvedor Front-end"
+            />
+          </div>
           <div className="grid gap-2">
             <label className="form-label">Data de início</label>
             <input
