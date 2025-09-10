@@ -1,4 +1,5 @@
-import { createContext, useContext, useState, createElement, ReactNode } from "react";
+import { createContext, useContext, useState, createElement } from "react";
+import type { ReactNode } from "react";
 
 type CVData = {
   name: string;
@@ -30,7 +31,7 @@ type Experience = {
 
 type CVContextType = {
   cvData: CVData;
-  updateField: (field: keyof CVData, value: any) => void;
+  updateField: (field: keyof CVData, value: CVData[keyof CVData]) => void;
 };
 
 const CVDataContext = createContext<CVContextType | undefined>(undefined);

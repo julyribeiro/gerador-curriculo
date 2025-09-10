@@ -50,7 +50,7 @@ export default function PreviewSection() {
                 <p className="font-bold uppercase">
                   {exp.role} - {exp.startDate} a {exp.endDate}
                 </p>
-                <p className="italic">
+                <p>
                   {exp.company}
                 </p>
                 {exp.description && (
