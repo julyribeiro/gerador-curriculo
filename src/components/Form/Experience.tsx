@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
 
+interface Experience {
+  id: string;
+  company: string;
+  role: string;
+  startDate: string;
+  endDate: string;
+  description: string;
+}
+
 export default function ExperiencesSection() {
   const { cvData, updateField } = useCVData();
 
@@ -29,16 +38,7 @@ export default function ExperiencesSection() {
 
     resetInputs();
   }
-
-  function removeExperience(id: string) {
-    updateField(
-      "experiences",
-      cvData.experiences.filter((exp) => exp.id !== id)
-    );
-    if (editingId === id) resetInputs();
-  }
-
-  function startEdit(exp: any) {
+  function startEdit(exp: Experience) {
     setEditingId(exp.id);
     setCompany(exp.company);
     setRole(exp.role);

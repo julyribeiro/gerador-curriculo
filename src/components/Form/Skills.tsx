@@ -41,10 +41,13 @@ export default function SkillsSection() {
           value={skillName}
           onChange={(e) => setSkillname(e.target.value)}
         />
+        <label htmlFor="skillLevel" className="sr-only">Nível da habilidade</label>
         <select
+          id="skillLevel"
+          aria-label="Nível da habilidade"
           className="p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
           value={skillLevel}
-          onChange={(e) => setSkillLevel(e.target.value as any)}
+          onChange={(e) => setSkillLevel(e.target.value as "Básico" | "Intermediário" | "Avançado")}
         >
           <option>Básico</option>
           <option>Intermediário</option>
