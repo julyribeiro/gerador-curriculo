@@ -1,9 +1,13 @@
-export type Skill = {
-  id: string;
-  name: string;
-  level: "Básico" | "Intermediário" | "Avançado";
-};
 
+export type CVData = {
+  name: string;
+  email: string;
+  phone: string;
+  linkedin: string;
+  resume: string;
+  skills: Skill[];
+  experiences: Experience[];
+};
 export type Experience = {
   id: string;
   company: string;
@@ -14,12 +18,10 @@ export type Experience = {
   current: boolean;
 };
 
-export type CVData = {
+
+
+export type Skill = {
+  id: string;
   name: string;
-  email: string;
-  phone: string;
-  linkedin: string;
-  resume: string;
-  skills: Skill[];
-  experiences: Experience[];
+  level: "Básico" | "Intermediário" | "Avançado";
 };

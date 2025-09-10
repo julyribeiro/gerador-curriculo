@@ -15,7 +15,7 @@ export default function SkillSection({ skills }: Props) {
           {skills.map((skill) => (
             <li
               key={skill.id}
-              className="px-3 py-1 bg-gray-100 rounded-full text-sm text-gray-700 border"
+              className="px-3 py-1 text-sm text-gray-700"
             >
               {skill.name} —{" "}
               <span className="italic text-gray-500">{skill.level}</span>
