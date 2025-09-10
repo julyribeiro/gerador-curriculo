@@ -175,12 +175,12 @@ export default function ExperiencesSection() {
               >
                 Editar
               </button>
-              <button
-                className="btn-danger ml-2"
+                <button
+                className="px-2 py-1 bg-red-400 text-white rounded hover:bg-red-600"
                 onClick={() => removeExperience(exp.id)}
-              >
+                >
                 Remover
-              </button>
+                </button>
             </div>
           </li>
         ))}
