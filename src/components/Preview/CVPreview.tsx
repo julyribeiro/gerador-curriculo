@@ -1,7 +1,7 @@
 // src/components/Preview/CVPreview.tsx
 import PersonalHeader from "./PersonalHeader";
 import ExperienceSection from "./ExperienceSection";
-import SkillSection from "./SkillSection";
+import SkillSection from "./SkillsSection";
 import { useCVData } from "../../hooks/useCVData";
 
 export default function CVPreview() {
