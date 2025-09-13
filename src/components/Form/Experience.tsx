@@ -9,7 +9,7 @@ interface Experience {
   startDate: string;
   endDate: string;
   description: string;
-  current: boolean; // Propriedade 'current' adicionada
+  current: boolean; // 
 }
 
 export default function ExperiencesSection() {
@@ -54,6 +54,9 @@ export default function ExperiencesSection() {
       "experiences",
       cvData.experiences.filter((exp) => exp.id !== id)
     );
+    if (editingId === id) {
+      resetInputs();
+    }
   }
 
   function startEdit(exp: Experience) {
