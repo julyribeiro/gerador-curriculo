@@ -14,7 +14,7 @@ export default function ExperienceItemPreview({ experience }: Props) {
   }, []);
 
   return (
-    <div key={experience.id} className={`text-gray-700 mb-8 ${isVisible ? 'animate-scaleIn' : 'opacity-0'}`}>
+    <div className={`text-gray-700 mb-8 ${isVisible ? 'animate-scaleIn' : 'opacity-0'}`}>
       <p className="font-bold uppercase">{experience.role}</p>
       <p className="italic">
         {experience.company} | {experience.startDate} – {experience.current ? "Atual" : experience.endDate}
@@ -22,7 +22,9 @@ export default function ExperienceItemPreview({ experience }: Props) {
       {experience.description && (
         <ul className="list-disc list-inside mt-2 space-y-1">
           {experience.description.split("\n").map((item, idx) => (
-            <li key={idx}>{item}</li>
+            <li key={idx} className="text-justify">
+              {item}
+            </li>
           ))}
         </ul>
       )}

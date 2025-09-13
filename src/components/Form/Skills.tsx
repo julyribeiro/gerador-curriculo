@@ -54,7 +54,7 @@ export default function SkillsSection() {
           <option>Avançado</option>
         </select>
         <button
-          className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md shadow hover:bg-blue-600 transition duration-200"
+          className="px-4 py-2 bg-blue-500 text-white font-medium rounded-md shadow cursor-pointer hover:bg-blue-600 transition duration-200"
           onClick={addSkill}
         >
           Adicionar
