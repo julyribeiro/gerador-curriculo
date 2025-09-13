@@ -95,9 +95,9 @@ export default function PersonalInfo() {
             type="button"
             onClick={handleEnhance}
             disabled={loading}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition disabled:opacity-50"
+            className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer transition disabled:opacity-50"
           >
-            {loading ? "Melhorando..." : "Melhorar Texto"}
+            {loading ? "Só um momento, o seu texto está sendo melhorando..." : "Melhorar Texto"}
           </button>
         </div>
       </div>
