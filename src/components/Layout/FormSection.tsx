@@ -8,7 +8,7 @@ export default function FormSection() {
   const { undo, redo, canUndo, canRedo } = useCVData();
 
   return (
-    <section className="flex-1 p-8 bg-white rounded-2xl border border-gray-200 shadow-lg overflow-y-auto">
+    <section className="flex-1 p-8 bg-white rounded-2xl border border-gray-200 shadow-lg overflow-y-auto animate-fadeIn">
       {/* Container para a imagem e o título */}
       <div className="flex items-center gap-4">
         <img src={logoImage} alt="Logo" className="w-12 h-12" />

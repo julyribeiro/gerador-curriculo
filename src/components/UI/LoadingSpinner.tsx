@@ -1,4 +1,4 @@
-// src/components/ui/LoadingSpinner.tsx
+// src/components/UI/LoadingSpinner.tsx
 
 import React from 'react';
 

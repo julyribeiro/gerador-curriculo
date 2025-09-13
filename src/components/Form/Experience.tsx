@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCVData } from "../../hooks/useCVData";
-import { Skeleton } from "../ui/Skeleton";
+import { Skeleton } from "../UI/Skeleton";
 
 interface Experience {
   id: string;
@@ -223,7 +223,7 @@ export default function ExperiencesSection() {
           cvData.experiences.map((exp) => (
             <li
               key={exp.id}
-              className="flex justify-between items-start bg-white p-2 rounded shadow"
+              className="flex justify-between items-start bg-white p-2 rounded shadow animate-scaleIn"
             >
               <div>
                 <strong>{exp.role}</strong> em {exp.company} <br />

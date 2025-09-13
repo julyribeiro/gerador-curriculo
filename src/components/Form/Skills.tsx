@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
+import SkillItem from "../UI/SkillItem"; //
 
 export default function SkillsSection() {
   const { cvData, updateField } = useCVData();
@@ -32,7 +33,6 @@ export default function SkillsSection() {
   return (
     <section className="mb-8">
       <h3 className="text-xl font-semibold mb-4 text-gray-700">Habilidades</h3>
-
       <div className="flex gap-2">
         <input
           type="text"
@@ -60,17 +60,14 @@ export default function SkillsSection() {
           Adicionar
         </button>
       </div>
-
       <div className="flex flex-wrap gap-2">
         {cvData.skills.map((skill) => (
-          <button
+          <SkillItem
             key={skill.id}
-            className="px-3 py-1 bg-blue-100 text-blue-700 font-medium rounded-full shadow-sm hover:bg-red-100 hover:text-red-600 transition duration-200"
+            name={skill.name}
+            level={skill.level}
             onClick={() => removeSkill(skill.id)}
-            title="Clique para remover"
-          >
-            {skill.name} <em className="text-xs">({skill.level})</em> <span className="text-red-500">✕</span>
-          </button>
+          />
         ))}
       </div>
     </section>
