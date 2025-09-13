@@ -32,6 +32,7 @@ export default function ExperiencesSection() {
       startDate,
       endDate,
       description,
+      current: !endDate.trim(), // true if endDate is empty, false otherwise
     };
 
     updateField("experiences", [...cvData.experiences, newExperience]);
@@ -68,6 +69,16 @@ export default function ExperiencesSection() {
     setEndDate("");
     setDescription("");
     setEditingId(null);
+  }
+
+  function removeExperience(id: string): void {
+    updateField(
+      "experiences",
+      cvData.experiences.filter((exp) => exp.id !== id)
+    );
+    if (editingId === id) {
+      resetInputs();
+    }
   }
 
   return (
