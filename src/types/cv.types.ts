@@ -8,12 +8,12 @@ export type CVData = {
   skills: Skill[];
   experiences: Experience[];
 };
-export type Experience = {
+export type Experience = {	
   id: string;
   company: string;
   role: string;
-  startDate: string;     
-  endDate: string;  
+  endDate: ReactNode;
+  startDate: ReactNode; 
   description: string;
   current: boolean;
 };

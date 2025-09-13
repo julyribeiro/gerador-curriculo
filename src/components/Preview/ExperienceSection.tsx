@@ -14,12 +14,14 @@ export default function ExperienceSection({ experiences }: Props) {
           EXPERIÊNCIA PROFISSIONAL
         </h2>
         {experiences.length > 0 ? (
-          <div className="mt-4 space-y-8"> 
+          <div className="mt-4 space-y-6"> 
             {experiences.map((exp) => (
-              <div key={exp.id} className="text-gray-700 mb-8">
-                <p className="font-bold uppercase">{exp.role}</p>
-                <p className="italic">
-                  {exp.company} | {exp.startDate} – {exp.current ? "Presente" : exp.endDate}
+              <div key={exp.id} className="text-gray-700">
+                <p className="font-bold uppercase">
+					{exp.role} - {exp.startDate} a {exp.endDate}
+				</p>
+                <p>
+                  {exp.company}
                 </p>
                 {exp.description && (
                   <ul className="list-disc list-inside mt-2 space-y-1">

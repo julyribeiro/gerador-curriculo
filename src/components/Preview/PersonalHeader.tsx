@@ -8,15 +8,16 @@ type Props = {
 export default function PersonalHeader({ cvData }: Props) {
   return (
     <>
-      <div className="text-center mb-8">
+      <section className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900 uppercase tracking-wide">
           {cvData.name || "Seu Nome Completo"}
         </h1>
-      </div>
-
-      <div className="flex flex-col items-center space-y-1 text-gray-700 mb-6">
-        <p>{cvData.email || "seu.email@exemplo.com"}</p>
-        <p>{cvData.phone || "(xx) xxxxx-xxxx"}</p>
+		</section>
+      <div className="flex flex-col space-y-1 text-gray-700 mb-6">
+		 <span className="flex justify-between gap-4">
+			<p>{cvData.email || "seu.email@exemplo.com"}</p>
+			<p>{cvData.phone || "(xx) xxxxx-xxxx"}</p>
+		</span>
         {cvData.linkedin && (
           <a
             href={cvData.linkedin}
