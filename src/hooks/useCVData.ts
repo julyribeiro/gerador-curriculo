@@ -1,6 +1,7 @@
-import { createContext, useContext, useState, createElement, ReactNode } from "react";
+import { createContext, useContext, useState, useEffect, createElement, type ReactNode } from "react";
 import type { CVData } from "../types/cv.types";
 
+const LOCAL_STORAGE_KEY = "cv-data";
 
 type CVContextType = {
   cvData: CVData;
@@ -10,15 +11,22 @@ type CVContextType = {
 const CVDataContext = createContext<CVContextType | undefined>(undefined);
 
 export function CVDataProvider({ children }: { children: ReactNode }) {
-  const [cvData, setCvData] = useState<CVData>({
-    name: "",
-    email: "",
-    phone: "",
-    linkedin: "",
-    resume: "",
-    skills: [],
-    experiences: [],
+  const [cvData, setCvData] = useState<CVData>(() => {
+    const savedData = localStorage.getItem(LOCAL_STORAGE_KEY);
+    return savedData ? JSON.parse(savedData) : {
+      name: "",
+      email: "",
+      phone: "",
+      linkedin: "",
+      resume: "",
+      skills: [],
+      experiences: [],
+    };
   });
+
+  useEffect(() => {
+    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(cvData));
+  }, [cvData]);
 
   function updateField(field: keyof CVData, value: CVData[keyof CVData]) {
     setCvData((prev) => ({ ...prev, [field]: value }));
