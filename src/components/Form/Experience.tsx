@@ -1,20 +1,11 @@
-import { useState, useEffect } from "react";
+// src/components/Experience/ExperiencesSection.tsx
+import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
 import { Skeleton } from "../UI/Skeleton";
-
-interface Experience {
-  id: string;
-  company: string;
-  role: string;
-  startDate: string;
-  endDate: string;
-  description: string;
-  current: boolean; // 
-}
+import ExperienceItem from "../UI/ExperienceItem";
 
 export default function ExperiencesSection() {
   const { cvData, updateField } = useCVData();
-  const [isLoading, setIsLoading] = useState(true);
 
   const [company, setCompany] = useState("");
   const [role, setRole] = useState("");
@@ -23,14 +14,8 @@ export default function ExperiencesSection() {
   const [description, setDescription] = useState("");
   const [current, setCurrent] = useState(false);
 
+  // Estado para edição
   const [editingId, setEditingId] = useState<string | null>(null);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
 
   function addExperience() {
     if (!company.trim() || !role.trim()) return;
@@ -54,9 +39,7 @@ export default function ExperiencesSection() {
       "experiences",
       cvData.experiences.filter((exp) => exp.id !== id)
     );
-    if (editingId === id) {
-      resetInputs();
-    }
+    if (editingId === id) resetInputs();
   }
 
   function startEdit(exp: Experience) {
@@ -89,15 +72,13 @@ export default function ExperiencesSection() {
     setStartDate("");
     setEndDate("");
     setDescription("");
-    setCurrent(false);
     setEditingId(null);
+    setCurrent(false);
   }
 
   return (
     <section className="grid gap-4">
-      <h3 className="text-xl font-semibold text-gray-700">
-        Experiências Profissionais
-      </h3>
+      <h3 className="text-xl font-semibold mb-4 text-gray-700">Experiências Profissionais</h3>
 
       <div className="form-group space-y-2">
         <div className="grid grid-cols-2 gap-4">
@@ -122,8 +103,9 @@ export default function ExperiencesSection() {
             />
           </span>
         </div>
+
         <div className="grid grid-cols-2 gap-4">
-          <span className="grid gap-2">
+          <div className="grid gap-2">
             <label className="form-label">Data de início</label>
             <input
               type="text"
@@ -132,8 +114,8 @@ export default function ExperiencesSection() {
               onChange={(e) => setStartDate(e.target.value)}
               placeholder="mm/aaaa"
             />
-          </span>
-          <span className="grid gap-2">
+          </div>
+          <div className="grid gap-2">
             <label className="form-label">Data de saída</label>
             <input
               type="text"
@@ -143,11 +125,11 @@ export default function ExperiencesSection() {
               placeholder="mm/aaaa"
               disabled={current}
             />
-          </span>
+          </div>
         </div>
 
         <div className="grid gap-2">
-          <label className="form-label mt-2">Descrição de suas atividades</label>
+          <label className="form-label">Descrição de suas atividades</label>
           <textarea
             className="form-input"
             value={description}
@@ -155,17 +137,14 @@ export default function ExperiencesSection() {
             placeholder="Descreva suas principais responsabilidades e conquistas."
           />
         </div>
-
-        <div className="flex items-center gap-2">
+        <div className="flex items-center space-x-2">
           <input
             type="checkbox"
-            id="current-job"
             checked={current}
             onChange={(e) => setCurrent(e.target.checked)}
+            id="current-job"
           />
-          <label htmlFor="current-job" className="form-label">
-            Trabalho atual
-          </label>
+          <label htmlFor="current-job">Trabalho atual</label>
         </div>
 
         {editingId ? (
@@ -194,61 +173,9 @@ export default function ExperiencesSection() {
       </div>
 
       <ul className="space-y-2 mt-4">
-        {isLoading ? (
-          <>
-            <li className="flex justify-between items-start bg-white p-2 rounded shadow">
-              <div className="flex-1 space-y-2">
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-3 w-1/2" />
-                <Skeleton className="h-3 w-full" />
-              </div>
-              <div className="flex gap-2">
-                <Skeleton className="h-8 w-16" />
-                <Skeleton className="h-8 w-16" />
-              </div>
-            </li>
-            <li className="flex justify-between items-start bg-white p-2 rounded shadow">
-              <div className="flex-1 space-y-2">
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-3 w-1/2" />
-                <Skeleton className="h-3 w-full" />
-              </div>
-              <div className="flex gap-2">
-                <Skeleton className="h-8 w-16" />
-                <Skeleton className="h-8 w-16" />
-              </div>
-            </li>
-          </>
-        ) : (
-          cvData.experiences.map((exp) => (
-            <li
-              key={exp.id}
-              className="flex justify-between items-start bg-white p-2 rounded shadow animate-scaleIn"
-            >
-              <div>
-                <strong>{exp.role}</strong> em {exp.company} <br />
-                <em>
-                  {exp.startDate} - {exp.current ? "Atual" : exp.endDate}
-                </em>
-                <p>{exp.description}</p>
-              </div>
-              <div className="flex gap-2">
-                <button
-                  className="px-2 py-1 bg-yellow-400 text-gray-600 rounded hover:bg-yellow-500 cursor-pointer"
-                  onClick={() => startEdit(exp)}
-                >
-                  Editar
-                </button>
-                <button
-                  className="px-2 py-1 bg-red-400 text-white rounded hover:bg-red-600 cursor-pointer"
-                  onClick={() => removeExperience(exp.id)}
-                >
-                  Remover
-                </button>
-              </div>
-            </li>
-          ))
-        )}
+        {cvData.experiences.map((exp) => (
+          <ExperienceItem key={exp.id} experience={exp} onEdit={startEdit} onRemove={removeExperience} />
+        ))}
       </ul>
     </section>
   );

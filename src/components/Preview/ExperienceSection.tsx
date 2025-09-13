@@ -1,6 +1,6 @@
 // src/components/Preview/ExperienceSection.tsx
 import type { Experience } from "../../types/cv.types";
-import ExperienceItemPreview from "../../components/Preview/ExperienceItemPreview";
+import ExperienceItemPreview from "./ExperienceItemPreview"; // Caminho de importação corrigido
 
 type Props = {
   experiences: Experience[];
@@ -14,7 +14,7 @@ export default function ExperienceSection({ experiences }: Props) {
           EXPERIÊNCIA PROFISSIONAL
         </h2>
         {experiences.length > 0 ? (
-          <div className="mt-4 ml-2 text-justify space-y-8"> 
+          <div className="mt-4 ml-2 text-justify space-y-8">
             {experiences.map((exp) => (
               <ExperienceItemPreview key={exp.id} experience={exp} />
             ))}

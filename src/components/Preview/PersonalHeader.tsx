@@ -1,8 +1,8 @@
+// src/components/Layout/PersonalHeader.tsx
 import type { CVData } from "../../types/cv.types";
 
 type Props = {
   cvData: CVData;
-  resume: string;
 };
 
 export default function PersonalHeader({ cvData }: Props) {
@@ -19,18 +19,10 @@ export default function PersonalHeader({ cvData }: Props) {
       </div>
 
       <div className="flex flex-col items-center space-y-1 text-gray-700 mb-6">
-        <p
-          className= {`${
-            cvData.email ? "text-gray-900" : "text-gray-400"
-          }`}
-        >
+        <p className={`${cvData.email ? "text-gray-900" : "text-gray-400"}`}>
           {cvData.email || "seu.email@exemplo.com"}
         </p>
-        <p
-          className={`${
-            cvData.phone ? "text-gray-900" : "text-gray-400"
-          }`}
-        >
+        <p className={`${cvData.phone ? "text-gray-900" : "text-gray-400"}`}>
           {cvData.phone || "(xx) xxxxx-xxxx"}
         </p>
         {cvData.linkedin && (
@@ -42,11 +34,13 @@ export default function PersonalHeader({ cvData }: Props) {
           </a>
         )}
       </div>
+
       <section className="mb-8">
         <h2 className="bg-gray-200 text-gray-800 text-center font-semibold py-1 rounded">
           RESUMO PROFISSIONAL
         </h2>
-        <p className={`italic mt-3 leading-relaxed text-center ${
+        <p
+          className={`italic mt-3 leading-relaxed text-center ${
             cvData.resume ? "text-gray-900 text-justify" : "text-gray-400"
           }`}
         >
