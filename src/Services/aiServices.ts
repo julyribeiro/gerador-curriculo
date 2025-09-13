@@ -18,15 +18,19 @@ async function withRetry<T>(
   }
 }
 
-
-
 export async function enhanceText(text: string): Promise<string> {
+  // Passo 1: Validação dos dados
+  if (!text || text.trim() === "") {
+    throw new Error("O texto para melhoria não pode estar vazio.");
+  }
+  
   const apiKey = import.meta.env.VITE_OPENAI_API_KEY;
 
   if (!apiKey) {
     throw new Error("API Key da OpenAI não encontrada. Verifique suas variáveis de ambiente.");
   }
 
+  // Passo 2: Execução da requisição com retry automático
   const enhancedText = await withRetry(async () => {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
@@ -52,13 +56,12 @@ export async function enhanceText(text: string): Promise<string> {
 
     if (!response.ok) {
       const errText = await response.text();
-      // Lança um erro para que a função withRetry possa capturá-lo e tentar novamente
       throw new Error(`Erro da API: ${errText}`);
     }
 
     const data = await response.json();
     return data.choices[0].message.content;
-  }, 3, 1000); // 3 tentativas, com 1 segundo de atraso entre cada
+  }, 3, 1000);
 
   return enhancedText;
 }
