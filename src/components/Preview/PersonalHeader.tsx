@@ -31,7 +31,7 @@ export default function PersonalHeader({ cvData }: Props) {
         <h2 className="bg-gray-200 text-gray-800 text-center font-semibold py-1 rounded">
           RESUMO PROFISSIONAL
         </h2>
-        <p className="text-gray-700 mt-3 leading-relaxed text-center">
+        <p className="text-gray-500 italic mt-3 leading-relaxed text-center">
           {cvData.resume ||
             "Um breve resumo sobre sua trajetória profissional, objetivos e principais conquistas."}
         </p>

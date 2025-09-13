@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
-import { enhanceText } from "../../Services/aiServices";
+import { enhanceText } from "../../services/aiServices";
 
 
 export default function PersonalInfo() {
