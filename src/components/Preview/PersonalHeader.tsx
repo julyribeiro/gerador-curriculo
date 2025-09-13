@@ -10,7 +10,7 @@ export default function PersonalHeader({ cvData }: Props) {
     <>
       <div className="text-center mb-8">
         <h1
-          className={`text-4xl font-bold uppercase tracking-wide ${
+          className={`text-4xl m-5 font-bold uppercase tracking-wide ${
             cvData.name ? "text-gray-900" : "text-gray-400"
           }`}
         >
@@ -36,7 +36,7 @@ export default function PersonalHeader({ cvData }: Props) {
         {cvData.linkedin && (
           <a
             href={cvData.linkedin}
-            className="text-sm text-white bg-gray-700 px-3 py-1 rounded-md hover:bg-gray-800 transition"
+            className="text-sm text-white bg-gray-700 px-3 py-1 mt-1 rounded-md hover:bg-gray-800 transition"
           >
             {cvData.linkedin}
           </a>
@@ -47,7 +47,7 @@ export default function PersonalHeader({ cvData }: Props) {
           RESUMO PROFISSIONAL
         </h2>
         <p className={`italic mt-3 leading-relaxed text-center ${
-            cvData.resume ? "text-gray-900" : "text-gray-400"
+            cvData.resume ? "text-gray-900 text-justify" : "text-gray-400"
           }`}
         >
           {cvData.resume ||
