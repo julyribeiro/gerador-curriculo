@@ -1,21 +1,22 @@
+// src/components/Preview/ExperienceSection.tsx
+
 import type { Experience } from "../../types/cv.types";
 
 type Props = {
   experiences: Experience[];
-
 };
 
 export default function ExperienceSection({ experiences }: Props) {
   return (
     <>
       <section className="mb-8">
-        <h2 className="bg-gray-200 text-gray-800 text-center font-semibold py-1 rounded">
+        <h2 className="bg-gray-200 text-gray-800 text-center font-semibold p-1 rounded">
           EXPERIÊNCIA PROFISSIONAL
         </h2>
         {experiences.length > 0 ? (
-          <div className="mt-4 space-y-6">
+          <div className="mt-4 space-y-8"> 
             {experiences.map((exp) => (
-              <div key={exp.id} className="text-gray-700">
+              <div key={exp.id} className="text-gray-700 mb-8">
                 <p className="font-bold uppercase">{exp.role}</p>
                 <p className="italic">
                   {exp.company} | {exp.startDate} – {exp.current ? "Presente" : exp.endDate}
@@ -35,7 +36,6 @@ export default function ExperienceSection({ experiences }: Props) {
             Nenhuma experiência adicionada ainda.
           </p>
         )}
-
       </section>
     </>
   );
