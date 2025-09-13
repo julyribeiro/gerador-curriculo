@@ -1,5 +1,6 @@
 import FormSection from "./components/Layout/FormSection";
 import PreviewSection from "./components/Layout/PreviewSection";
+import { Toaster } from 'react-hot-toast';
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
 
       {/* Preview - lado direito */}
       <div className="w-1/2 h-full overflow-y-auto">
+        <Toaster />
         <PreviewSection />
       </div>
     </div>
