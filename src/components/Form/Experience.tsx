@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useCVData } from "../../hooks/useCVData";
-import { Skeleton } from "../ui/Skeleton";
+import { Skeleton } from "../UI/Skeleton";
 
 interface Experience {
   id: string;
