@@ -225,7 +225,7 @@ export default function ExperiencesSection() {
               <div>
                 <strong>{exp.role}</strong> em {exp.company} <br />
                 <em>
-                  {exp.startDate} - {exp.current ? "Presente" : exp.endDate}
+                  {exp.startDate} - {exp.current ? "Atual" : exp.endDate}
                 </em>
                 <p>{exp.description}</p>
               </div>

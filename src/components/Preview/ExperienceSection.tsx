@@ -19,7 +19,7 @@ export default function ExperienceSection({ experiences }: Props) {
               <div key={exp.id} className="text-gray-700 mb-8">
                 <p className="font-bold uppercase">{exp.role}</p>
                 <p className="italic">
-                  {exp.company} | {exp.startDate} – {exp.current ? "Presente" : exp.endDate}
+                  {exp.company} | {exp.startDate} – {exp.current ? "Atual" : exp.endDate}
                 </p>
                 {exp.description && (
                   <ul className="list-disc list-inside mt-2 space-y-1">
