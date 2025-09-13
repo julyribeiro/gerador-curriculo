@@ -54,6 +54,9 @@ export default function ExperiencesSection() {
       "experiences",
       cvData.experiences.filter((exp) => exp.id !== id)
     );
+    if (editingId === id) {
+      resetInputs();
+    }
   }
 
   function startEdit(exp: Experience) {
