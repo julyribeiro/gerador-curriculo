@@ -1,4 +1,4 @@
-// src/components/ui/Skeleton.tsx
+// src/components/UI/Skeleton.tsx
 
 import { cn } from "../../../lib/utils";
 

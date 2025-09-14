@@ -1,7 +1,7 @@
 // src/components/Preview/ExportButton.tsx
 
 import React, { useState } from 'react';
-import { Button } from '../ui/button';
+import { Button } from '../UI/button';
 import { Download, Loader2 } from 'lucide-react';
 import { useToast } from '../../hooks/use-toast'; 
 import { exportToPdf } from '../../services/pdfService';

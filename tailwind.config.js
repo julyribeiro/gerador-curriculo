@@ -24,8 +24,17 @@ export default {
         "gray-700": "rgb(68, 68, 68)",
         "gray-800": "rgb(51, 51, 51)",
         "gray-900": "rgb(34, 34, 34)",
-        "white": "#fff", 
-      }
+        "white": "#fff",
+      },
+      animation: {
+        scaleIn: 'scaleIn 0.4s ease-out forwards',
+      },
+      keyframes: {
+        scaleIn: {
+          '0%': { opacity: 0, transform: 'scale(0.95)' },
+          '100%': { opacity: 1, transform: 'scale(1)' },
+        },
+      },
     },
   },
   plugins: [],

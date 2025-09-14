@@ -11,7 +11,7 @@ export default function SkillSection({ skills }: Props) {
         HABILIDADES
       </h2>
       {skills.length > 0 ? (
-        <ul className="flex flex-wrap justify-center gap-3 mt-4">
+        <ul className="flex flex-wrap justify-start gap-3 mt-4">
           {skills.map((skill) => (
             <li
               key={skill.id}
