@@ -22,7 +22,7 @@ export default function SkillItem({ name, level, onClick }: Props) {
         isVisible ? 'animate-scaleIn' : 'opacity-0'
       }`}
     >
-      {name} <em className="text-xs">({level})</em> <span className="text-red-500">✕</span>
+      {name} <em className="text-xs">({level})</em> <span className="text-red-500 cursor-pointer">✕</span>
     </button>
   );
 }

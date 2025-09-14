@@ -12,7 +12,6 @@ export default function CVPreview() {
     <section className="space-y-8">
       <PersonalHeader
         cvData={cvData}
-        resume={cvData.resume}
       />
       <SkillSection skills={cvData.skills} />
       <ExperienceSection

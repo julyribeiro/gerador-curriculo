@@ -1,8 +1,8 @@
 // src/components/Experience/ExperiencesSection.tsx
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
-import { Skeleton } from "../UI/Skeleton";
 import ExperienceItem from "../UI/ExperienceItem";
+import type { Experience } from "../../types/cv.types";
 
 export default function ExperiencesSection() {
   const { cvData, updateField } = useCVData();
