@@ -16,7 +16,7 @@ export default function ExperienceItemPreview({ experience }: Props) {
   return (
     <div className={`text-gray-700 mb-4 ${isVisible ? 'animate-scaleIn' : 'opacity-0'}`}>
       <p className="font-bold uppercase">{experience.role} | {experience.startDate} – {experience.current ? "Atual" : experience.endDate}</p>
-      <p className="italic underline">
+      <p className="italic">
         {experience.company}
       </p>
       {experience.description && (

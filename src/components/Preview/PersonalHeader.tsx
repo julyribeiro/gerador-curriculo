@@ -28,9 +28,9 @@ export default function PersonalHeader({ cvData }: Props) {
           </p>
         </span>
         {cvData.linkedin && (
-          <a
+          <a target="_blank" rel="noopener noreferrer"
             href={cvData.linkedin}
-            className="text-sm text-blue-400 underline text-center px-3 py-1 mt-1 rounded-md hover:text-purple-400 transition"
+            className="text-sm text-blue-400 text-center px-3 py-1 mt-1 rounded-md hover:text-purple-400 transition"
           >
             {cvData.linkedin}
           </a>

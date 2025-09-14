@@ -11,6 +11,7 @@ export default {
         "red-400": "rgb(202, 102, 102)",
         "red-500": "rgb(187, 68, 68)",
         "red-600": "rgb(172, 34, 34)",
+        "blue-400": "rgb(22, 130, 238)",
         "blue-500": "rgb(0, 102, 204)",
         "blue-600": "rgb(0, 77, 153)",
         "blue-700": "rgb(0, 51, 102)",
@@ -24,7 +25,7 @@ export default {
         "gray-700": "rgb(68, 68, 68)",
         "gray-800": "rgb(51, 51, 51)",
         "gray-900": "rgb(34, 34, 34)",
-        "white": "#fff",
+        "white": "rgb(34, 34, 34)",
       },
       animation: {
         scaleIn: 'scaleIn 0.4s ease-out forwards',
