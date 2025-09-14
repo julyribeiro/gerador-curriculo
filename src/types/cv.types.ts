@@ -1,4 +1,4 @@
-
+// src/types/cv.types.ts
 export type CVData = {
   name: string;
   email: string;
@@ -8,17 +8,16 @@ export type CVData = {
   skills: Skill[];
   experiences: Experience[];
 };
-export type Experience = {	
+
+export type Experience = {
   id: string;
   company: string;
   role: string;
-  endDate: ReactNode;
-  startDate: ReactNode; 
+  endDate: string;
+  startDate: string;
   description: string;
   current: boolean;
 };
-
-
 
 export type Skill = {
   id: string;

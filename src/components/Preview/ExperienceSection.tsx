@@ -1,6 +1,6 @@
 // src/components/Preview/ExperienceSection.tsx
 import type { Experience } from "../../types/cv.types";
-import ExperienceItemPreview from "./ExperienceItemPreview"; // Caminho de importação corrigido
+import ExperienceItemPreview from "./ExperienceItemPreview";
 
 type Props = {
   experiences: Experience[];
