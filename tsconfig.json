@@ -4,6 +4,7 @@
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
   ],
+<<<<<<< HEAD
   "compilerOptions": {
     "target": "ES2020",
     "module": "ESNext",
@@ -13,6 +14,15 @@
     "skipLibCheck": true
   },
   "include": ["server/**/*", "src/**/*"]
+=======
+   
+    "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+>>>>>>> upstream/main
 }
 
 

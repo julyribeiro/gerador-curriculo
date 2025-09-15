@@ -1,6 +1,55 @@
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
+<<<<<<< HEAD
 import { improveText } from "../../Services/aiServices";
+=======
+import { enhanceText } from "../../services/aiServices";
+
+// Função para aplicar máscara de telefone
+const formatPhone = (value) => {
+  // Remove tudo que não é número
+  const numbers = value.replace(/\D/g, '');
+  
+  // Se não tem números, retorna vazio
+  if (!numbers) return '';
+  
+  // Limita a 11 dígitos (código de área + número)
+  const limitedNumbers = numbers.slice(0, 11);
+  
+  // Se tem menos de 3 dígitos, retorna apenas os números
+  if (limitedNumbers.length <= 2) {
+    return limitedNumbers;
+  }
+  
+  // Se tem 3-6 dígitos, aplica apenas (XX) 
+  if (limitedNumbers.length <= 6) {
+    return `(${limitedNumbers.slice(0, 2)}) ${limitedNumbers.slice(2)}`;
+  }
+  
+  // Para 7+ dígitos, verifica se é celular (9 no terceiro dígito após DDD)
+  const ddd = limitedNumbers.slice(0, 2);
+  const restNumbers = limitedNumbers.slice(2);
+  
+  // Se o terceiro dígito (primeiro após DDD) é 9, é celular
+  const isCelular = restNumbers[0] === '9';
+  
+  if (isCelular) {
+    // Celular: (XX) 9XXXX-XXXX
+    if (limitedNumbers.length <= 10) {
+      return `(${ddd}) ${restNumbers}`;
+    } else {
+      return `(${ddd}) ${restNumbers.slice(0, 5)}-${restNumbers.slice(5)}`;
+    }
+  } else {
+    // Fixo: (XX) XXXX-XXXX
+    if (limitedNumbers.length <= 9) {
+      return `(${ddd}) ${restNumbers}`;
+    } else {
+      return `(${ddd}) ${restNumbers.slice(0, 4)}-${restNumbers.slice(4)}`;
+    }
+  }
+};
+>>>>>>> upstream/main
 
 export default function PersonalInfo() {
   const { cvData, updateField } = useCVData();
@@ -22,6 +71,12 @@ export default function PersonalInfo() {
   }
 }
 
+
+  // Função para lidar com mudanças no telefone
+  const handlePhoneChange = (e) => {
+    const formatted = formatPhone(e.target.value);
+    updateField("phone", formatted);
+  };
 
   return (
     <section className="space-y-14">
@@ -58,10 +113,11 @@ export default function PersonalInfo() {
             <label className="block text-sm font-medium text-gray-600 mb-1">Telefone</label>
             <input
               type="text"
-              placeholder="(xx) x xxxx-xxxx"
+              placeholder="(11) 99999-9999"
               className="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
               value={cvData.phone}
-              onChange={(e) => updateField("phone", e.target.value)}
+              onChange={handlePhoneChange}
+              maxLength="15"
             />
           </span>
           <span>
@@ -95,9 +151,9 @@ export default function PersonalInfo() {
             type="button"
             onClick={handleEnhance}
             disabled={loading}
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition disabled:opacity-50"
+            className="px-4 py-2 font-semibold bg-blue-500 text-white rounded-md hover:bg-blue-600 cursor-pointer transition disabled:opacity-50"
           >
-            {loading ? "Melhorando..." : "Melhorar Texto"}
+            {loading ? "Só um momento, o seu texto está sendo melhorando..." : "Melhorar Texto"}
           </button>
         </div>
       </div>

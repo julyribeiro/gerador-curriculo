@@ -6,12 +6,12 @@ type Props = {
 
 export default function SkillSection({ skills }: Props) {
   return (
-    <section>
-      <h2 className="bg-gray-200 text-gray-800 text-center font-semibold py-1 rounded">
+    <section className="mb-4">
+      <h2 className="text-xl text-gray-800 font-bold tracking-wide p-1">
         HABILIDADES
       </h2>
       {skills.length > 0 ? (
-        <ul className="flex flex-wrap justify-center gap-3 mt-4">
+        <ul className="flex flex-wrap justify-start gap-3">
           {skills.map((skill) => (
             <li
               key={skill.id}

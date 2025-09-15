@@ -1,7 +1,6 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import './styles/colors.css';
+@import "tailwindcss";
 
 .section-container {
   @apply flex-1 p-8 bg-gray-50 border-r border-gray-200 overflow-y-auto;
