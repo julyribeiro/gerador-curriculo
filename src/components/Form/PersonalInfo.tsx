@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
-import { enhanceText } from "../../Services/aiServices";
-
+import { improveText } from "../../Services/aiServices";
 
 export default function PersonalInfo() {
   const { cvData, updateField } = useCVData();
@@ -10,18 +9,19 @@ export default function PersonalInfo() {
   const resumeCount = cvData.resume ? cvData.resume.length : 0;
 
   async function handleEnhance() {
-    if (!cvData.resume) return; // evita chamada com texto vazio
-    try {
-      setLoading(true);
-      const improved = await enhanceText(cvData.resume);
-      updateField("resume", improved);
-    } catch (error) {
-      console.error("Erro ao melhorar o texto:", error);
-      alert("Não foi possível melhorar o texto agora.");
-    } finally {
-      setLoading(false);
-    }
+  if (!cvData.resume) return;
+  try {
+    setLoading(true);
+    const improved = await improveText(cvData.resume); // <- aqui muda
+    updateField("resume", improved);
+  } catch (error) {
+    console.error("Erro ao melhorar o texto:", error);
+    alert("Não foi possível melhorar o texto agora.");
+  } finally {
+    setLoading(false);
   }
+}
+
 
   return (
     <section className="space-y-14">
@@ -104,3 +104,4 @@ export default function PersonalInfo() {
     </section>
   );
 }
+
