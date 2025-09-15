@@ -1,22 +1,4 @@
 // src/services/aiService.ts
-<<<<<<< HEAD
-export async function improveText(prompt: string): Promise<string> {
-  const resp = await fetch("/api/generate", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ prompt }),
-  });
-
-  if (!resp.ok) {
-    const body = await resp.json().catch(() => ({}));
-    throw new Error(body?.error ?? `HTTP ${resp.status}`);
-  }
-
-  const data = await resp.json();
-  return data.text as string;
-}
-=======
-
 // Função auxiliar para retry automático
 async function withRetry<T>(
   fn: () => Promise<T>,
@@ -82,4 +64,13 @@ export async function enhanceText(text: string): Promise<string> {
 
   return enhancedText;
 }
->>>>>>> upstream/main
+
+export async function improveText(text: string): Promise<string> {
+  const res = await fetch("/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ prompt: text }),
+  });
+  const data = await res.json();
+  return data.text;
+}

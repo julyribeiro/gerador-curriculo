@@ -23,9 +23,5 @@
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true
   },
-<<<<<<< HEAD
   "include": ["src", "server"]
-=======
-  "include": ["src", "lib"]
->>>>>>> upstream/main
 }

@@ -1,9 +1,7 @@
 import { useState } from "react";
 import { useCVData } from "../../hooks/useCVData";
-<<<<<<< HEAD
 import { improveText } from "../../Services/aiServices";
-=======
-import { enhanceText } from "../../services/aiServices";
+
 
 // Função para aplicar máscara de telefone
 const formatPhone = (value) => {
@@ -49,7 +47,6 @@ const formatPhone = (value) => {
     }
   }
 };
->>>>>>> upstream/main
 
 export default function PersonalInfo() {
   const { cvData, updateField } = useCVData();
@@ -159,5 +156,7 @@ export default function PersonalInfo() {
       </div>
     </section>
   );
+
+
 }
 
