@@ -1,6 +1,6 @@
 // src/hooks/useAIEnhancement.ts
 import { useState } from "react";
-import { improveText } from "../services/aiService";
+import { improveText } from "../../src/Services/aiServices";
 
 export function useAIEnhancement() {
   const [loading, setLoading] = useState(false);
